@@ -1,7 +1,7 @@
 <?php
 return array(
     'host' => 'localhost',
-    'dbname' => 'mvc_db',
+    'dbname' => 'phpshop',
     'user' => 'root',
     'password' => 'root',
     

@@ -1,10 +1,8 @@
 <?php 
 return array(
-    'news/([0-9]+)' => 'news/view/$1',
+    'product/([0-9]+)' => 'product/view/$1',
+    '' => 'site/index',
 
-    'news' => 'news/index',
-     
-    // 'products' => 'product/list',
 );
 
 

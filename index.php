@@ -10,8 +10,8 @@
     // 2. Подключение файлов системы
     define('ROOT', dirname(__FILE__));
     require_once(ROOT.'/components/Router.php');
-    require_once(ROOT.'/models/News.php');
     include_once(ROOT.'/components/Db.php');
+    include_once(ROOT.'/models/Category.php');
 
     
 

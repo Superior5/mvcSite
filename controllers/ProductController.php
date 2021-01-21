@@ -3,9 +3,9 @@
 class ProductController
 {
 
-    public function actionList()
+    public function actionView()
     {
-        echo "И этот тоже";
+        require_once(ROOT.'/views/product/view.php');
         return true;
     }
 }
