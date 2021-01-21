@@ -26,10 +26,12 @@ class Product
             }
             return $productList;
         }
-        public static function getProductListByCategory($categoryId = false){
+        public static function getProductListByCategory($categoryId = false, $page = 1){
             if($categoryId){
+                $page = intval($page);
+            
             $db = Db::getConnection();
-
+            
             $products = array();
 
             $result = $db -> query("SELECT id, name, price, is_new FROM phpshop.product "
@@ -45,10 +47,21 @@ class Product
                 $products[$i]['is_new'] = $row['is_new'];
                 $i++;
             }
+            
             return $products;
             }
         }
-    
+    public static function getProductById($id)
+    {
+        $id = intval($id);
+        if($id){
+            $db = Db::getConnection();
+            $result = $db -> query('SELECT * FROM product WHERE id ='. $id);
+            $result-> setFetchMode(PDO::FETCH_ASSOC);
+
+            return $result -> fetch();
+        }
+    }
 }
 
 
