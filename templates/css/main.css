@@ -1682,7 +1682,9 @@ h2.title {
   margin-left:0;
   margin-top: 0;
 }
-
+.productinfo > img {
+  filter: blur(10px);
+}
 .heading h3 {
   color: #363432;
   font-size: 20px;
