@@ -2,7 +2,7 @@
 class Product
 {
 
-        const SHOW_BY_DEFAULT = 10;
+        const SHOW_BY_DEFAULT = 3;
 
         public static function getLatestProduct($count = self::SHOW_BY_DEFAULT){
             $count = intval($count);
@@ -29,6 +29,7 @@ class Product
         public static function getProductListByCategory($categoryId = false, $page = 1){
             if($categoryId){
                 $page = intval($page);
+                $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
             
             $db = Db::getConnection();
             
@@ -37,7 +38,8 @@ class Product
             $result = $db -> query("SELECT id, name, price, is_new FROM phpshop.product "
             . "WHERE status = '1' AND category_id = '$categoryId' "
             . 'ORDER BY id DESC '                
-            . 'LIMIT '. self::SHOW_BY_DEFAULT);
+            . 'LIMIT '. self::SHOW_BY_DEFAULT
+            . ' OFFSET '. $offset);
 
             $i = 0;
             while($row = $result -> fetch() ) {
