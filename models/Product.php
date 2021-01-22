@@ -2,7 +2,7 @@
 class Product
 {
 
-        const SHOW_BY_DEFAULT = 3;
+        const SHOW_BY_DEFAULT = 5;
 
         public static function getLatestProduct($count = self::SHOW_BY_DEFAULT){
             $count = intval($count);
@@ -35,9 +35,9 @@ class Product
             
             $products = array();
 
-            $result = $db -> query("SELECT id, name, price, is_new FROM phpshop.product "
+            $result = $db -> query("SELECT id, name, price, is_new FROM product "
             . "WHERE status = '1' AND category_id = '$categoryId' "
-            . 'ORDER BY id DESC '                
+            . 'ORDER BY id ASC '                
             . 'LIMIT '. self::SHOW_BY_DEFAULT
             . ' OFFSET '. $offset);
 
@@ -63,6 +63,19 @@ class Product
 
             return $result -> fetch();
         }
+    }
+    public static function getTotalProductsInCategory($categoryId)
+    {
+        $db = Db::getConnection();
+        
+        $result = $db ->query('SELECT count(id) AS count From product '
+        . 'WHERE status ="1" AND category_id = "'. $categoryId . '"');
+
+        $result -> setFetchMode(PDO::FETCH_ASSOC);
+        $row = $result -> fetch();
+
+        return $row['count'];
+
     }
 }
 

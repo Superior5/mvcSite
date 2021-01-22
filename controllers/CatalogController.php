@@ -1,6 +1,6 @@
 <?php 
-include_once ROOT.'/models/Category.php';
-include_once ROOT.'/models/Product.php';
+
+
 class CatalogController
 {
 
@@ -12,9 +12,8 @@ class CatalogController
 
         $latestProduct = array();
         $latestProduct = Product::getLatestProduct(12);
-        require_once(ROOT.'/views/catalog/index.php');
-        
 
+        require_once(ROOT.'/views/catalog/index.php');
 
         return true;
     }
@@ -27,6 +26,11 @@ class CatalogController
 
         $categoryProducts = array();
         $categoryProducts = Product::getProductListByCategory($categoryId, $page);
+
+        $total = Product::getTotalProductsInCategory($categoryId);
+
+        $pagination = new Pagination($total, $page, Product::SHOW_BY_DEFAULT, 'page-');
+
         require_once(ROOT.'/views/catalog/category.php');
 
         return true;

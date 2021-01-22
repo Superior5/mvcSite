@@ -46,22 +46,16 @@
                             </div>
 
                         <?php endforeach; ?>
-
+                    <!-- Пагинация -->
+                        
                     </div>
                     <!--features_items-->
+                    <?php echo $pagination -> get(); ?>
+
 
                 </div>
             </div>
         </div>
-                                            <?PHP echo $categoryId; ?>
-        <!-- <ul class = "pagination">
-            <?php// if($page != 1) echo '<li><a href="/category/'. $categoryItem['id'].'/page-'. (intval($page) - 1) .'">&lt;</a></li>' ?>
-            <li><a href="/category/<?php echo $categoryId?>/page-1">1</a></li>
-            <li><a href="/category/<?php echo $categoryId?>/page-2">2</a></li>
-            <li><a href="/category/<?php echo $categoryId?>/page-3">3</a></li>
-            <li><a href="/category/<?php echo $categoryId?>/page-4">4</a></li>
-            <?php// if($page != 4) echo '<li><a href="/category/'. $categoryItem['id'] .'/page-'. (intval($page) + 1) .'">&gt;</a></li>' ?>
-        </ul> -->
     </section>
 
 <?php require_once (ROOT.'/views/layouts/footer.php'); ?>
