@@ -19,8 +19,6 @@ class CatalogController
     }
     public function actionCategory($categoryId, $page = 1)
     {
-        echo 'category '. $categoryId;
-        echo '<br />category '. $page;
         $categories = array();
         $categories = Category::getCategorieList();
 
