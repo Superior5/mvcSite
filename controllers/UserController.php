@@ -68,9 +68,13 @@ class UserController
 
             
             $userId = User::checkUserData($email, $password);
+    
+            if ($userId == false) {
+                $errors[] = 'Нпрвильные данные дял входа на сайт!';
+            } else {
 
-            if ($userId) {
-                $errors[] = ''
+                User::auth($userId);
+                header("Location: /cabinet/");
             }
         }
 

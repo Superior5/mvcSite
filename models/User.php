@@ -74,4 +74,17 @@ class User
         return false;
 
     }
+
+    public static function auth($userId)
+    {
+        session_start();
+        $_SESSION['user'] = $userId;
+    }
+
+    public static function checkLogged()
+    {
+        
+    }
+
+    
 }
