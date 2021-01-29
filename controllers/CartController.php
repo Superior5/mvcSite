@@ -17,6 +17,13 @@ class CartController
         return true;
     }
 
+    public function actionDelete($id) {
+
+        unset($_SESSION['products'][$id]);
+        header('Location: /cart');
+        return true;
+    }
+
     public function actionIndex()
     {
         $categories = array();

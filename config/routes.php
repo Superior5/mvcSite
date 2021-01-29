@@ -11,6 +11,8 @@ return array(
     
     'cart/checkout' => 'cart/checkout',
 
+    'cart/delete/([0-9]+)' => 'cart/delete/$1',
+
     'cart' => 'cart/index',
 
 
@@ -20,7 +22,13 @@ return array(
 
     'cabinet/edit' => 'cabinet/edit',
     'cabinet' => 'cabinet/index',
-  
+    'admin' => 'admin/index',
+
+    'admin/product/create' => 'adminProduct/create',
+    'admin/product/update' => 'adminProduct/update',
+    'admin/product/delete' => 'adminProduct/delete',
+    'admin/product' => 'adminProduct/index',
+
     'contacts' => 'site/contact',
 
 

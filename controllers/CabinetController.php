@@ -45,6 +45,7 @@ class CabinetController
 
 
         require_once(ROOT . '/views/cabinet/edit.php');
+        Product::getRecomendedProducts();
 
         return true;
     }
